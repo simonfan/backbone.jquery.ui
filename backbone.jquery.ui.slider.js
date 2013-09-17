@@ -63,10 +63,11 @@ function(ModelView          , $      , Backbone , undef      , undef            
 		 * Evaluate the sliderOptions object on the $el's context
 		 */
 		_evaluateSliderOptions: function($el, options) {
-			var sliderOptions = {};
+			var _this = this,
+				sliderOptions = {};
 
 			_.each(options, function(value, name) {
-				sliderOptions[ name ] = typeof value === 'function' ? value.call($el, $el) : value;
+				sliderOptions[ name ] = typeof value === 'function' ? value.call(_this, $el) : value;
 			});
 
 			return sliderOptions;
